@@ -26,6 +26,9 @@ app.get("/TodoList",(req,res)=>{
 app.get("/login",(req,res)=>{
     res.render("login");
 })
+app.get("/Courses",(req,res)=>{
+    res.render("Courses");
+})
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
