@@ -1,39 +1,15 @@
+const db = require('./database');
 const path = require('path');
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const port = 3000;
-const mysql = require('mysql2/promise'); // Use 'mysql2/promise' for async/await support
+const bodyParser = require('body-parser');
+const { register } = require('module');
 
 
-// Define your MySQL database connection configuration
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: 'root123',
-  database: 'classroom'
-};
-
-// Create a connection pool
-const pool = mysql.createPool(dbConfig);
-
-// Middleware to attach the MySQL pool to the request object
-app.use((req, res, next) => {
-  req.pool = pool;
-  next();
-});
-
-app.get('/example', async (req, res) => {
-  try {
-    const [rows, fields] = await req.pool.query('SELECT * FROM student');
-    res.json(rows);
-  } catch (error) {
-    console.error('Error executing query:', error);
-    res.status(500).json({ error: 'Something went wrong' });
-  }
-});
-
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, 'Views')));
 // app.use(express.static(path.join(__dirname, 'Views/style.css')));
 // app.use(express.static(path.join(__dirname, 'Views/Home.js')));
@@ -46,6 +22,10 @@ app.set("view engine","ejs");
 app.get("/", (req,res)=>{
     res.render("Home");
 })
+app.get("/Home", (req,res)=>{
+    res.render("Home");
+})
+
 
 app.get("/MainClass",(req,res)=>{
     res.render("MainClass");
@@ -59,7 +39,21 @@ app.get("/login",(req,res)=>{
 app.get("/Courses",(req,res)=>{
     res.render("Courses");
 })
+app.post('/login', (req, res) => {
+  var namee = req.body.name;
+  var idd = req.body.id;
+  var passwordd = req.body.password;
+  var sql = "INSERT INTO student(moodle_id,name,password) VALUES('" + idd + "','" + namee + "','" + passwordd + "')";
+  db.query(sql,function (err, result) {
+    // if (error) {
+    //   console.error('Query error: ' + err);
+    //   // Handle the error, e.g., send an error response
+    //   res.status(500).send('An error occurred during the query.');
+    // }
+      res.render('register');
+  });
+});
 
 app.listen(port,()=>{
-    console.log(`listening on port ${port}`);
+  console.log(`listening on port ${port}`)
 });
