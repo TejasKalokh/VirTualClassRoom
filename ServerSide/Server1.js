@@ -10,9 +10,6 @@ const { register } = require('module');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, 'Views')));
-// app.use(express.static(path.join(__dirname, 'Views/style.css')));
-// app.use(express.static(path.join(__dirname, 'Views/Home.js')));
 app.use(express.static('Views'));
 app.use(express.static('Views/css'));
 app.use(express.static('Views/Img'));
@@ -45,11 +42,6 @@ app.post('/login', (req, res) => {
   var passwordd = req.body.password;
   var sql = "INSERT INTO student(moodle_id,name,password) VALUES('" + idd + "','" + namee + "','" + passwordd + "')";
   db.query(sql,function (err, result) {
-    // if (error) {
-    //   console.error('Query error: ' + err);
-    //   // Handle the error, e.g., send an error response
-    //   res.status(500).send('An error occurred during the query.');
-    // }
       res.render('register');
   });
 });

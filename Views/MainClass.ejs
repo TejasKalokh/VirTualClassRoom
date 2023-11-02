@@ -26,8 +26,9 @@
     <div class="cannavs">
       <button id="muteButton">Mute</button>
     <button id="unmuteButton">Unmute</button>
+    <input type="file" id="fileInput" />
     <audio id="audioElement" autoplay></audio>
-
+    <div id="pdfDisplay" height = "700px" width="1090px"></div>
       <canvas id="whiteboard" width="1090" height="700"></canvas>
       <button id="eraseButton">Erase</button>
     </div>
@@ -201,6 +202,33 @@
 });
 
 </script>
+<script>
+       // Get the file input element
+      const fileInput = document.getElementById("fileInput");
+
+      // Get the canvas and PDF display elements
+      const canvas = document.getElementById("whiteboard");
+      const pdfDisplay = document.getElementById("pdfDisplay");
+
+      // Listen for the user to select a file
+      fileInput.addEventListener("change", function () {
+        // Get the selected file
+        const file = fileInput.files[0];
+
+        // Check if a PDF file is selected
+        if (file.type === "application/pdf") {
+          // Display the PDF and hide the canvas
+          pdfDisplay.style.display = "block";
+          canvas.style.display = "none";
+          pdfDisplay.innerHTML = `<iframe src="${URL.createObjectURL(
+            file
+          )}" width="1180px" height="700px"></iframe>`;
+        } else {
+          // Display an error or handle other file types
+          alert("Please select a PDF file.");
+        }
+      });
+    </script>
     <script src="scriptt.js"></script>
   </div>
 </body>

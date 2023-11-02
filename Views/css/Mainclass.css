@@ -1,4 +1,4 @@
-body{
+body {
   overflow-x: hidden;
   background-color: rgb(36, 36, 36);
 }
@@ -73,7 +73,7 @@ body {
 
 #chat {
   width: 300px;
-  margin: 0 ;
+  margin: 0;
 }
 .chat::-webkit-scrollbar {
   width: 0;
@@ -82,7 +82,6 @@ body {
   height: 444px;
   border: 1px solid black;
   overflow-y: scroll;
-  
 }
 
 #message-input {
@@ -196,7 +195,7 @@ body {
   flex-grow: 1;
   color: #fff;
 }
-#chat{
+#chat {
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -238,30 +237,29 @@ body {
   /* Increase padding for more space inside the button */
 }
 .annotation-area {
-        position: relative;
-        width: 80%;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        min-height: 400px;
-    }
-    .annotation {
-        position: absolute;
-        background-color: yellow;
-        padding: 5px;
-    }
-    canvas {
-        border: 1px solid white;
-    }
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  min-height: 400px;
+}
+.annotation {
+  position: absolute;
+  background-color: yellow;
+  padding: 5px;
+}
+canvas {
+  border: 1px solid white;
+}
 
-    .maincontainer{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .cannvas{
-      background-color: black;
-    }
-    #whiteboard{
-      border-radius: 10px;
-    }
-   
+.maincontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cannvas {
+  background-color: black;
+}
+#whiteboard {
+  border-radius: 10px;
+}
