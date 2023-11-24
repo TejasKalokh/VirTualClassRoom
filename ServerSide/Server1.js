@@ -14,8 +14,6 @@ app.use(express.urlencoded({ extended: true })); // To parse URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('Views'));
-app.use(express.static('Views/css'));
-app.use(express.static('Views/Img'));
 app.set("view engine","ejs");
 
 
@@ -27,7 +25,7 @@ app.get("/", (req,res)=>{
 app.get("/MainClass",(req,res)=>{
     res.render("MainClass");
 })
-app.get("/TodoList",(req,res)=>{
+app.get("/TodoList.html",(req,res)=>{
     res.render("TodoList");
 })
 app.get("/login",(req,res)=>{
