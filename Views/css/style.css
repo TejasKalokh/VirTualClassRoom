@@ -413,7 +413,7 @@ a {
 }
 
 .todolist:hover {
-    transform: translate(10%, 10%) scale(1.2);
+    transform: translate(10%, 10%) scale(1);
 }
 
 .footer {
@@ -484,7 +484,7 @@ a {
 }
 
 .TimeTable:hover {
-    transform: translate(10%, 10%) scale(1.2);
+    transform: translate(10%, 10%) scale(1);
 }
 
 .Supportimg {
@@ -503,9 +503,9 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 } 
-/* 
+
 .Support:hover {
-    transform: translate(10%, 10%) scale(1.2);
+    transform: translate(10%, 10%) scale(1);
 }
 
 .Achivementsimg {
@@ -526,8 +526,8 @@ a {
 }
 
 .Achivements:hover {
-    transform: translate(10%, 10%) scale(1.2);
-} */
+    transform: translate(10%, 10%) scale(1);
+}
 
 .rightsecelemnts {
     display: flex;
@@ -537,7 +537,7 @@ a {
 }
 
 .footer {
-    padding-block: 6px;
+    padding-block: 0.37rem;
 }
 
 #popup {

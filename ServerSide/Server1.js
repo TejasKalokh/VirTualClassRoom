@@ -25,7 +25,7 @@ app.get("/", (req,res)=>{
 app.get("/MainClass",(req,res)=>{
     res.render("MainClass");
 })
-app.get("/TodoList.html",(req,res)=>{
+app.get("/TodoList",(req,res)=>{
     res.render("TodoList");
 })
 app.get("/login",(req,res)=>{
